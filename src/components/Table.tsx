@@ -1,9 +1,9 @@
 import React from "react";
-
 import { inject, observer } from "mobx-react";
 import { listOfCurrentPlace } from './currentList'
 import { Row } from "./Row";
 import xmark from './xmark.png'
+import { СurrentPlaceInfo } from './PlaceInfo'
 
 type Props = {
     listOfPlaces?: listOfCurrentPlace;
@@ -21,11 +21,6 @@ export class Table extends React.Component<Props> {
     setCheck(): void {
         this.props.listOfPlaces?.setSearch(this.state.search)
     }
-
-    // componentDidMount(): void {
-    //     this.props.listOfPlaces?.init();
-    //     console.log(this.props.listOfPlaces?.getAllPlaces);
-    // }
 
     onChangeHandler(event: React.ChangeEvent<HTMLSelectElement>) {
         this.setState({
@@ -80,14 +75,16 @@ export class Table extends React.Component<Props> {
             <div className="col-sm-8 row justify-content-left container-fluid">
                 {this.props.listOfPlaces!.arrayOfPersonalPlaces.map((place) => 
                     <div className="col-sm-8 row justify-content-start">
-                        <tr>{place.name}</tr>
+                        <tr onClick = {() => this.props.listOfPlaces!.setCurrentPlaceInfo(place.id)}>{place.name}</tr>    
                         <div className="col-sm-8 row justify-content-end">{this.props.listOfPlaces!.getTempurature(place.id)}</div>
                         <img src={xmark} className="icons" onClick={() => this.props.listOfPlaces!.deleteFromPlaces(place.id)}/>
                     </div>
                 )}        
             </div>
+            <div>
+                <СurrentPlaceInfo InfoPlace={this.props.listOfPlaces!.getInfoPlace}/>
+            </div>
           </div>   
         )
     }
-
 }

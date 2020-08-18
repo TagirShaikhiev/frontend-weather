@@ -1,4 +1,4 @@
-import { PlaceInfo } from "./listOfPlaces"
+import { PlaceInfo, zeroInfo } from "./listOfPlaces"
 import { observable, computed, action } from 'mobx'
 import { observer } from "mobx-react";
 import React from "react";
@@ -33,8 +33,10 @@ export class listOfCurrentPlace {
     
     @observable currentPlace: Place = this.search[0];
 
+    @observable zeroPlace: PlaceInfo = zeroInfo;
+
     @observable
-    private arrayOfPlaces: String = '';
+    private currentPlaceInfoNumber: number = 0;
 
     @computed
     get returnCurrentPlace(): Place {
@@ -130,4 +132,13 @@ export class listOfCurrentPlace {
         this.setLocalStorage();            
     }
 
+    @action
+    setCurrentPlaceInfo (placeInfo: number) { 
+        this.currentPlaceInfoNumber = placeInfo;
+    }
+
+    @computed
+    get getInfoPlace() {
+        return (this.PlaceInfo.find(elem => elem.id === this.currentPlaceInfoNumber) !== undefined) ? this.PlaceInfo.find(elem => elem.id === this.currentPlaceInfoNumber) : this.zeroPlace;
+    }
 }
