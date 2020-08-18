@@ -1,0 +1,42 @@
+[
+    {
+        "id": 479537,
+        "name": "Uglerodovskiy",
+        "state": "",
+        "country": "RU",
+        "coord": {
+            "lon": 40.062069,
+            "lat": 48.147041
+        }
+    },
+    {
+        "id": 479539,
+        "name": "Uglegorskiy",
+        "state": "",
+        "country": "RU",
+        "coord": {
+            "lon": 41.253101,
+            "lat": 48.242741
+        }
+    },
+    {
+        "id": 479553,
+        "name": "Ufimskiy",
+        "state": "",
+        "country": "RU",
+        "coord": {
+            "lon": 58.051701,
+            "lat": 56.708401
+        }
+    },
+    {
+        "id": 479561,
+        "name": "Ufa",
+        "state": "",
+        "country": "RU",
+        "coord": {
+            "lon": 56.037498,
+            "lat": 54.775002
+        }
+    }
+]
